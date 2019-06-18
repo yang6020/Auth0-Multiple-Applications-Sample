@@ -3,6 +3,19 @@
 </h1>
 <h4 *ngIf="auth.isAuthenticated()">
   You are logged in!
+  <div *ngFor="let company of companies ">
+    <p>Company: </p>
+    <p>Id: {{company.id}}</p>
+    <p>Name: {{company.name}}</p>
+    <p>Description: {{company.description}}</p>
+    <div *ngFor="let job of company.jobs">
+      <p>Job: </p>
+      <p>Id: {{job.id}}</p>
+      <p>Title: {{job.title}}</p>
+      <p>Description: {{job.description}}</p>
+    </div>
+  </div>
+
 </h4>
 <h4 *ngIf="!auth.isAuthenticated()">
   You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
